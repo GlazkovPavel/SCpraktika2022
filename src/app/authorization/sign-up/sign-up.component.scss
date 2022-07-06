@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background: rgba(33, 93, 93, 0.8);
+  padding: 10px;
+
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  padding: 10px;
+}
+
+.title {
+  margin-bottom: 15px;
+}
+
+.input {
+  margin-top: 6px;
+  border-radius: 6px;
+}
+
+.button {
+  margin-top: 10px;
+  width: 200px;
+  background: blue;
+  color: white;
+}
