@@ -1,0 +1,28 @@
+
+<div class="container">
+  <p class="title">Регистрация</p>
+  <form class="form" [formGroup]="form" (submit)="submit()">
+
+    <input
+      formControlName="email"
+      class="input"
+      type="email"
+      placeholder="Введите email"
+
+    >
+    <input
+      formControlName="password"
+      class="input"
+      type="password"
+      placeholder="Введите пароль"
+
+    >
+
+    <button
+      [disabled]="form.invalid"
+      (click)="submit()"
+      class="button"
+    >Отправить</button>
+  </form>
+</div>
+

@@ -1,25 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ISignUpInterface} from "../interface/sign-up.interface";
+import {ISignInInterface} from "../interface/sign-in.interface";
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.scss']
 })
-export class SignUpComponent implements OnInit {
+export class SignInComponent implements OnInit {
+
   public form!: FormGroup;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
 
     this.form = new FormGroup({
-      name: new FormControl('', [
-        Validators.required,
-        Validators.min(3),
-        Validators.max(20)
-      ]),
       email: new FormControl(null, [
         Validators.required,
         Validators.min(3),
@@ -40,15 +37,12 @@ export class SignUpComponent implements OnInit {
 
   public submit(): void {
 
-    const formSubmit: ISignUpInterface = {
-      name: this.form.controls['name'].value,
+    const formSubmit: ISignInInterface = {
       email: this.form.controls['email'].value,
       password: this.form.controls['password'].value,
-      cpassword: this.form.controls['cpassword'].value,
     }
 
     console.log(formSubmit);
 
   }
-
 }
