@@ -1,6 +1,9 @@
 
 <div class="container">
-  <p class="title">Регистрация</p>
+  <div class="header">
+    <p class="title title__p">ВХОД</p>
+    <button class="title button" [routerLink]="['/sign-up']">Регистрация</button>
+  </div>
   <form class="form" [formGroup]="form" (submit)="submit()">
 
     <input
@@ -19,8 +22,7 @@
     >
 
     <button
-      [disabled]="form.invalid"
-      (click)="submit()"
+      (submit)="submit()"
       class="button"
     >Отправить</button>
   </form>
