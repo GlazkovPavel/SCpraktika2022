@@ -6,25 +6,40 @@
   </div>
   <form class="form" [formGroup]="form" (submit)="submit()">
 
-    <input
-      formControlName="email"
-      class="input"
-      type="email"
-      placeholder="Введите email"
+    <div class="input__container">
+      <label class="label" for="email">E-MAIL</label>
+      <input
+        formControlName="email"
+        class="input"
+        type="email"
+        id="email"
+        placeholder="Введите email"
 
-    >
-    <input
-      formControlName="password"
-      class="input"
-      type="password"
-      placeholder="Введите пароль"
+      >
+    </div>
 
-    >
+    <div class="input__container">
+      <label class="label" for="password">ПАРОЛЬ</label>
+      <input
+        id="password"
+        formControlName="password"
+        class="input"
+        type="password"
+        placeholder="Введите пароль"
 
-    <button
-      (submit)="submit()"
-      class="button"
-    >Отправить</button>
+      >
+    </div>
+
+    <div class="button__container">
+      <button
+        (submit)="submit()"
+        class="button__submit"
+      >Отправить</button>
+
+      <button class="title button button__support">Обратиться в тех.поддержку</button>
+    </div>
+
+
   </form>
 </div>
 

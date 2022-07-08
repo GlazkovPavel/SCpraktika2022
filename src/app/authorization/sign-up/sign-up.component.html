@@ -1,38 +1,133 @@
 
   <div class="container">
-    <p class="title">Регистрация</p>
+    <p class="title title__p">Регистрация</p>
     <form class="form" [formGroup]="form" (submit)="submit()">
-      <input
-        formControlName="name"
-        class="input"
-        type="text"
-        placeholder="Введите имя"
-      >
-      <input
-        formControlName="email"
-        class="input"
-        type="email"
-        placeholder="Введите email"
 
-      >
-      <input
-        formControlName="password"
-        class="input"
-        type="password"
-        placeholder="Введите пароль"
+      <div class="input__container">
+        <label class="label" for="surname">Фамилия</label>
+        <input
+          formControlName="surname"
+          id="surname"
+          class="input"
+          type="text"
+        >
+      </div>
 
-      >
-      <input
-        formControlName="cpassword"
-        class="input"
-        type="password"
-        placeholder="Повторите пароль"
-      >
-      <button
-        [disabled]="form.invalid"
-        (click)="submit()"
-        class="button"
-      >Отправить</button>
+
+      <div class="input__container">
+        <label class="label" for="name">Имя</label>
+        <input
+          formControlName="name"
+          id="name"
+          class="input"
+          type="text"
+        >
+      </div>
+
+      <div class="input__container">
+        <label class="label" for="patronymic">Отчество</label>
+        <input
+          formControlName="patronymic"
+          id="patronymic"
+          class="input"
+          type="text"
+        >
+
+      </div>
+
+      <div class="input__container">
+        <label class="label" for="email">E-MAIL</label>
+        <input
+          formControlName="email"
+          class="input"
+          id="email"
+          type="email"
+          placeholder="Введите email"
+
+        >
+      </div>
+
+      <div class="input__container" >
+        <label class="label" for="city">Город</label>
+        <select
+          formControlName="city"
+          id="city"
+          class="input"
+        >
+          <option *ngFor="let city of cities" value="{{city.value}}">{{city.city}}</option>
+        </select>
+      </div>
+
+      <div class="input__container" >
+        <label class="label" for="school">Школа</label>
+        <select
+          formControlName="school"
+          id="school"
+          class="input"
+        >
+          <option *ngFor="let school of schools" value="{{school.value}}">{{school.school}}</option>
+        </select>
+      </div>
+
+      <div class="input__container" >
+        <label class="label" for="classRoom">Класс</label>
+        <select
+          formControlName="classRoom"
+          id="classRoom"
+          class="input"
+        >
+          <option *ngFor="let classRoom of classRooms" value="{{classRoom.value}}">{{classRoom.school}}</option>
+        </select>
+      </div>
+
+      <div class="input__container">
+        <label class="label" for="password">Пароль</label>
+        <input
+          id="password"
+          formControlName="password"
+          class="input"
+          type="password"
+          placeholder="Введите пароль"
+
+        >
+      </div>
+
+      <div class="input__container">
+        <label class="label" for="cpassword">Подтвердите пароль</label>
+        <input
+          id="cpassword"
+          formControlName="cpassword"
+          class="input"
+          type="password"
+          placeholder="Повторите пароль"
+        >
+
+      </div>
+
+
+      <div class="button__container">
+        <div>
+          <input
+            id="checkbox"
+            type="checkbox"
+            formControlName="checkbox"
+            class="checkbox"
+          >
+          <label for="checkbox">Я хочу получать новости о соревнованиях на телефон</label>
+        </div>
+
+
+        <button
+          [disabled]="form.invalid"
+          (click)="submit()"
+          class="button"
+        >ЗАРЕГЕСТРИРОВАТЬСЯ</button>
+<!--   ОШИБКА ДЛЯ ТЕСТИРОВАНИЯ     ЗАРЕГИСТРИРОВАТЬСЯ-->
+      </div>
+
     </form>
+
   </div>
+  <button class="button__support-container button__support">Обратиться в тех.поддержку</button>
+
 

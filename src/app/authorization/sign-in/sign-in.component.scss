@@ -11,12 +11,10 @@
   justify-content: space-between;
   margin-top: 177px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  vertical-align: middle;
 }
 
 .title {
   color: black;
-  vertical-align: middle;
 
   &__p {
     margin: 0;
@@ -36,4 +34,55 @@
   border: none;
   cursor: pointer;
   text-decoration: underline;
+
+  &__container {
+    display: flex;
+    margin-top: 41px;
+    width: 376px;
+    margin-left: auto;
+  }
+
+  &__submit {
+    width: 100px;
+    height: 70px;
+    background: #585858;
+    border-radius: 15px;
+    margin-right: 54px;
+    color: white;
+    border: none;
+  }
+
+  &__support {
+    width: 222px;
+    height: 20px;
+    margin: auto 0 0 0;
+    padding: 0;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+
+}
+
+.input {
+  width: 376px;
+  height: 36px;
+  border-radius: 2.67px;
+  background-color: #E0E0E0;
+  border: none;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 19px;
+
+  }
+
+  &__container {
+    margin-bottom: 19px;
+  }
 }
