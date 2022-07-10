@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { SignInComponent } from './authorization/sign-in/sign-in.component';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
+import {ModalModule} from "./shared/modal/modal.module";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

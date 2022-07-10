@@ -3,6 +3,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ISignUpInterface} from "../interface/sign-up.interface";
 import {ICities} from "../interface/cities.interface";
 import {ISchoolInterface} from "../interface/school.interface";
+import {ModalService} from "../../shared/modal/modal.service";
+import {SignUpSuccessComponent} from "../../shared/modal/sign-up-success/sign-up-success.component";
 
 @Component({
   selector: 'app-sign-up',
@@ -32,7 +34,7 @@ export class SignUpComponent implements OnInit {
   ]
 
 
-  constructor() { }
+  constructor(private readonly modalService: ModalService) { }
 
   ngOnInit(): void {
 
@@ -98,6 +100,12 @@ export class SignUpComponent implements OnInit {
     }
 
     console.log(formSubmit);
+
+    this.modalService.open({
+      component: SignUpSuccessComponent,
+      context: formSubmit
+    })
+
 
   }
 
