@@ -5,6 +5,7 @@ import {ICities} from "../interface/cities.interface";
 import {ISchoolInterface} from "../interface/school.interface";
 import {ModalService} from "../../shared/modal/modal.service";
 import {SignUpSuccessComponent} from "../../shared/modal/sign-up-success/sign-up-success.component";
+import {ValidationService} from "../../shared/validation/service/validation.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -34,15 +35,17 @@ export class SignUpComponent implements OnInit {
   ]
 
 
-  constructor(private readonly modalService: ModalService) { }
+  constructor(
+    private readonly modalService: ModalService,
+    private  validationService: ValidationService) { }
 
   ngOnInit(): void {
+
 
     this.form = new FormGroup({
       surname: new FormControl('', [
         Validators.required,
-        Validators.min(3),
-        Validators.max(20)
+        this.validationService.usernameSpecialSymbols
       ]),
       name: new FormControl('', [
         Validators.required,
@@ -69,14 +72,19 @@ export class SignUpComponent implements OnInit {
         Validators.max(20),
         Validators.email
       ]),
-      password: new FormControl(null, [
-        Validators.required,
-        Validators.min(8),
-      ]),
-      cpassword: new FormControl(null, [
-        Validators.required,
-        Validators.min(8),
-      ]),
+      password: new FormGroup({
+        passwordCtrl: new FormControl(null, [
+          Validators.required,
+          Validators.min(8)
+        ]),
+        cpassword: new FormControl(null, [
+          Validators.required,
+          Validators.min(8),
+        ])
+        // @ts-ignore
+
+      }, [this.validationService.equalValidator]),
+
       checkbox: new FormControl('', [
 
       ]),
@@ -94,7 +102,7 @@ export class SignUpComponent implements OnInit {
       city: this.form.controls['city'].value,
       school: this.form.controls['school'].value,
       classRoom: this.form.controls['classRoom'].value,
-      password: this.form.controls['password'].value,
+      password: this.form.controls['passwordCtrl'].value,
       cpassword: this.form.controls['cpassword'].value,
       checkbox: this.form.controls['checkbox'].value,
     }

@@ -11,6 +11,8 @@
           class="input"
           type="text"
         >
+        <span *ngIf="form.controls['surname']?.errors
+        && form.controls['surname'].errors?.username">{{form.controls['surname']?.errors.username}}</span>
       </div>
 
 
@@ -80,29 +82,34 @@
         </select>
       </div>
 
-      <div class="input__container">
-        <label class="label" for="password">Пароль</label>
-        <input
-          id="password"
-          formControlName="password"
-          class="input"
-          type="password"
-          placeholder="Введите пароль"
+      <ng-container formGroupName="password">
+        <div class="input__container">
+          <label class="label" for="password">Пароль</label>
+          <input
+            id="password"
+            formControlName="passwordCtrl"
+            class="input"
+            type="password"
+            placeholder="Введите пароль"
 
-        >
-      </div>
+          >
+        </div>
 
-      <div class="input__container">
-        <label class="label" for="cpassword">Подтвердите пароль</label>
-        <input
-          id="cpassword"
-          formControlName="cpassword"
-          class="input"
-          type="password"
-          placeholder="Повторите пароль"
-        >
+        <div class="input__container">
+          <label class="label" for="cpassword">Подтвердите пароль</label>
+          <input
+            id="cpassword"
+            formControlName="cpassword"
+            class="input"
+            type="password"
+            placeholder="Повторите пароль"
+          >
+          <span *ngIf="form.controls['password']?.errors.password">
+          {{form.controls['password']?.errors.password}}</span>
 
-      </div>
+        </div>
+      </ng-container>
+
 
 
       <div class="button__container">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ISignInInterface} from "../interface/sign-in.interface";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sign-in',
@@ -11,7 +12,7 @@ export class SignInComponent implements OnInit {
 
   public form!: FormGroup;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
@@ -43,6 +44,8 @@ export class SignInComponent implements OnInit {
     }
 
     console.log(formSubmit);
+    this.router.navigate(['/main']);
+
 
   }
 }

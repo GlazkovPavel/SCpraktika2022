@@ -9,6 +9,7 @@ import { SignInComponent } from './authorization/sign-in/sign-in.component';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import {ModalModule} from "./shared/modal/modal.module";
+import {ValidationService} from "./shared/validation/service/validation.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import {ModalModule} from "./shared/modal/modal.module";
     ReactiveFormsModule,
     ModalModule.forRoot(),
   ],
-  providers: [],
+  providers: [ValidationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import {SignUpComponent} from "./authorization/sign-up/sign-up.component";
 import {SignInComponent} from "./authorization/sign-in/sign-in.component";
 import {HomeComponent} from "./home/home.component";
+import {MainComponent} from "./main/main.component";
 
 const routes: Routes = [
   {path: 'sign-up', component: SignUpComponent},
   {path: 'sign-in', component: SignInComponent},
   {path: '', component: HomeComponent},
-  {path: '', redirectTo: '/', pathMatch: 'full'}
+  {path: '', redirectTo: '/', pathMatch: 'full'},
+  {path: 'main', component: MainComponent}
 ];
 
 @NgModule({
