@@ -43,16 +43,16 @@ export class SignUpComponent implements OnInit {
 
 
     this.form = new FormGroup({
-      surname: new FormControl('', [
+      surname: new FormControl(null, [
         Validators.required,
         this.validationService.usernameSpecialSymbols
       ]),
-      name: new FormControl('', [
+      name: new FormControl(null, [
         Validators.required,
         Validators.min(3),
         Validators.max(20)
       ]),
-      patronymic: new FormControl('', [
+      patronymic: new FormControl(null, [
         Validators.required,
         Validators.min(3),
         Validators.max(20)
@@ -81,9 +81,7 @@ export class SignUpComponent implements OnInit {
           Validators.required,
           Validators.min(8),
         ])
-        // @ts-ignore
-
-      }, [this.validationService.equalValidator]),
+      }, [this.validationService.equalValidator, this.validationService.passwordSpecialSymbols]),
 
       checkbox: new FormControl('', [
 
@@ -102,8 +100,7 @@ export class SignUpComponent implements OnInit {
       city: this.form.controls['city'].value,
       school: this.form.controls['school'].value,
       classRoom: this.form.controls['classRoom'].value,
-      password: this.form.controls['passwordCtrl'].value,
-      cpassword: this.form.controls['cpassword'].value,
+      password: this.form.controls['password'].value['passwordCtrl'],
       checkbox: this.form.controls['checkbox'].value,
     }
 

@@ -11,6 +11,11 @@ export class ValidationService {
     return valid ? null : { username: 'Используйте только буквы и цифры'}
   }
 
+  public passwordSpecialSymbols(control: FormControl): ValidationErrors | null {
+    const valid = /^[a-zA-Z0-9]+$/.test(control.value.passwordCtrl)
+    return valid ? null : { passwordSymbols: 'Пароль должен содержать только латинские буквы и цифры'}
+  }
+
   public equalValidator({value}: FormGroup): ValidationErrors | null {
     const [passwordCtrl, cpassword] = Object.values(value);
     return passwordCtrl === cpassword ? null : {

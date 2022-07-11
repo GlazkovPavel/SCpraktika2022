@@ -7,7 +7,6 @@ export interface ISignUpInterface {
   school: string,
   classRoom: string,
   password: string,
-  cpassword: string,
   checkbox: boolean
 
 }

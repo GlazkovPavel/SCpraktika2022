@@ -5,14 +5,17 @@
 
       <div class="input__container">
         <label class="label" for="surname">Фамилия</label>
-        <input
-          formControlName="surname"
-          id="surname"
-          class="input"
-          type="text"
-        >
-        <span *ngIf="form.controls['surname']?.errors
+        <div class="input__block">
+          <input
+            formControlName="surname"
+            id="surname"
+            class="input"
+            type="text"
+          >
+          <span class="error" *ngIf="form.controls['surname']?.errors
         && form.controls['surname'].errors?.username">{{form.controls['surname']?.errors.username}}</span>
+        </div>
+
       </div>
 
 
@@ -85,27 +88,37 @@
       <ng-container formGroupName="password">
         <div class="input__container">
           <label class="label" for="password">Пароль</label>
-          <input
-            id="password"
-            formControlName="passwordCtrl"
-            class="input"
-            type="password"
-            placeholder="Введите пароль"
+          <div class="input__block">
+            <input
+              id="password"
+              formControlName="passwordCtrl"
+              class="input"
+              type="password"
+              placeholder="Введите пароль"
+              autocomplete="new-password"
+            >
 
-          >
+            <span class="error" *ngIf="form.controls['password']?.errors?.passwordSymbols">
+          {{form.controls['password']?.errors?.passwordSymbols}}</span>
+          </div>
+
         </div>
 
         <div class="input__container">
           <label class="label" for="cpassword">Подтвердите пароль</label>
-          <input
-            id="cpassword"
-            formControlName="cpassword"
-            class="input"
-            type="password"
-            placeholder="Повторите пароль"
-          >
-          <span *ngIf="form.controls['password']?.errors.password">
-          {{form.controls['password']?.errors.password}}</span>
+          <div class="input__block">
+            <input
+              id="cpassword"
+              formControlName="cpassword"
+              class="input"
+              type="password"
+              placeholder="Повторите пароль"
+              autocomplete="new-password"
+            >
+            <span class="error" *ngIf="form.controls['password']?.errors?.password
+          && this.form.controls['password'].value['passwordCtrl'].length > 0">
+          {{form.controls['password']?.errors?.password}}</span>
+          </div>
 
         </div>
       </ng-container>
