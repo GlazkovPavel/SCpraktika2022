@@ -1,0 +1,102 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main {
+  margin: 54px auto 0 34px;
+}
+
+.center{
+    display: flex;
+    flex-direction: row;
+    padding-left: 120px;
+    margin-top: 100px;
+}
+
+.left {
+  display: flex;
+  width: 439px;
+  
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    padding-left: 70px;
+}
+
+.button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: white;
+
+  &__menu {
+    width: 50px;
+    height: 50px;
+    margin-right: 36px;
+  }
+
+  &__enter {
+    width: 301px;
+    height: 69px;
+    background: #585858;
+    border-radius: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    margin-top: 112px;
+  }
+}
+
+.sorev{
+    margin-right: 50px;
+    border-top: 3px solid;
+    border-color: #585858;
+    width: 287px;
+}
+
+.title {
+  color: #585858;
+
+  &__sport {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 21px;
+    margin-top: 26px;
+  }
+
+  &__main {
+    margin-top: 326px;
+  }
+
+  &__sor{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 21px;
+    margin-top: 21px;
+  }
+
+  &__h1 {
+    font-weight: 500;
+    font-size: 55px;
+    line-height: 48px;
+  }
+
+  &__p {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 21px;
+    margin: 0;
+  }
+}

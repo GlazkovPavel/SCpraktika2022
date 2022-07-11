@@ -1,0 +1,152 @@
+
+  <div class="container">
+    <p class="title title__p">Регистрация</p>
+    <form class="form" [formGroup]="form" (submit)="submit()">
+
+      <div class="input__container">
+        <label class="label" for="surname">Фамилия</label>
+        <div class="input__block">
+          <input
+            formControlName="surname"
+            id="surname"
+            class="input"
+            type="text"
+          >
+          <span class="error" *ngIf="form.controls['surname']?.errors
+        && form.controls['surname'].errors?.username">{{form.controls['surname']?.errors.username}}</span>
+        </div>
+
+      </div>
+
+
+      <div class="input__container">
+        <label class="label" for="name">Имя</label>
+        <input
+          formControlName="name"
+          id="name"
+          class="input"
+          type="text"
+        >
+      </div>
+
+      <div class="input__container">
+        <label class="label" for="patronymic">Отчество</label>
+        <input
+          formControlName="patronymic"
+          id="patronymic"
+          class="input"
+          type="text"
+        >
+
+      </div>
+
+      <div class="input__container">
+        <label class="label" for="email">E-MAIL</label>
+        <input
+          formControlName="email"
+          class="input"
+          id="email"
+          type="email"
+          placeholder="Введите email"
+
+        >
+      </div>
+
+      <div class="input__container" >
+        <label class="label" for="city">Город</label>
+        <select
+          formControlName="city"
+          id="city"
+          class="input"
+        >
+          <option *ngFor="let city of cities" value="{{city.value}}">{{city.city}}</option>
+        </select>
+      </div>
+
+      <div class="input__container" >
+        <label class="label" for="school">Школа</label>
+        <select
+          formControlName="school"
+          id="school"
+          class="input"
+        >
+          <option *ngFor="let school of schools" value="{{school.value}}">{{school.school}}</option>
+        </select>
+      </div>
+
+      <div class="input__container" >
+        <label class="label" for="classRoom">Класс</label>
+        <select
+          formControlName="classRoom"
+          id="classRoom"
+          class="input"
+        >
+          <option *ngFor="let classRoom of classRooms" value="{{classRoom.value}}">{{classRoom.school}}</option>
+        </select>
+      </div>
+
+      <ng-container formGroupName="password">
+        <div class="input__container">
+          <label class="label" for="password">Пароль</label>
+          <div class="input__block">
+            <input
+              id="password"
+              formControlName="passwordCtrl"
+              class="input"
+              type="password"
+              placeholder="Введите пароль"
+              autocomplete="new-password"
+            >
+
+            <span class="error" *ngIf="form.controls['password']?.errors?.passwordSymbols">
+          {{form.controls['password']?.errors?.passwordSymbols}}</span>
+          </div>
+
+        </div>
+
+        <div class="input__container">
+          <label class="label" for="cpassword">Подтвердите пароль</label>
+          <div class="input__block">
+            <input
+              id="cpassword"
+              formControlName="cpassword"
+              class="input"
+              type="password"
+              placeholder="Повторите пароль"
+              autocomplete="new-password"
+            >
+            <span class="error" *ngIf="form.controls['password']?.errors?.password
+          && this.form.controls['password'].value['passwordCtrl'].length > 0">
+          {{form.controls['password']?.errors?.password}}</span>
+          </div>
+
+        </div>
+      </ng-container>
+
+
+
+      <div class="button__container">
+        <div>
+          <input
+            id="checkbox"
+            type="checkbox"
+            formControlName="checkbox"
+            class="checkbox"
+          >
+          <label for="checkbox">Я хочу получать новости о соревнованиях на телефон</label>
+        </div>
+
+
+        <button
+          [disabled]="form.invalid"
+          (submit)="submit()"
+          class="button"
+        >ЗАРЕГИСТРИРОВАТЬСЯ</button>
+      </div>
+
+    </form>
+
+  </div>
+  <button class="button__support-container button__support">Обратиться в тех.поддержку</button>
+
+
