@@ -110,8 +110,10 @@ export class SignUpComponent implements OnInit {
       component: SignUpSuccessComponent,
       context: formSubmit
     })
-
-
   }
 
+  public showError(): boolean {
+    return this.form.controls['email']?.errors
+      && this.form.controls['email'].touched && this.form.controls['email']?.value.length > 0;
+  }
 }

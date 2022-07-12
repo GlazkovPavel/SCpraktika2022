@@ -42,14 +42,17 @@
 
       <div class="input__container">
         <label class="label" for="email">E-MAIL</label>
-        <input
-          formControlName="email"
-          class="input"
-          id="email"
-          type="email"
-          placeholder="Введите email"
+        <div class="input__block">
+          <input
+            formControlName="email"
+            class="input"
+            id="email"
+            type="email"
+            placeholder="Введите email"
 
-        >
+          >
+          <span class="error" *ngIf="showError()">Некорректный e-mail</span>
+        </div>
       </div>
 
       <div class="input__container" >
